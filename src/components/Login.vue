@@ -29,13 +29,26 @@ export default{
     },
     methods:{
         async login(){
-            try{
-               const val = await firebase.auth().signInWithEmailAndPassword(this.email,this.password)
-               console.log(val)
-               this.$router.replace({name:'home'});
-            }catch(err){
-                console.log(err)
-            }
+
+            firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          this.$router.replace({name:'home'});
+        })
+        .catch(error => {
+          this.error = error.message;
+        });
+
+
+            // try{
+            //    const val = await firebase.auth().signInWithEmailAndPassword(this.email,this.password)
+            //    console.log(val)
+               
+            //    this.$router.replace({name:'home'});
+            // }catch(err){
+            //     console.log(err)
+            // }
             
         }
         

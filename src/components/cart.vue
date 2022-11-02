@@ -50,6 +50,7 @@
 
 
 <script>
+
 import { mapGetters , mapActions } from 'vuex'
 
 
@@ -62,11 +63,14 @@ import { mapGetters , mapActions } from 'vuex'
         ...mapActions(["addQty","reduceQty","removeItemfromCart"]),
         totalPrice(){
             return this.cart.reduce((a, b) => a + b.qty * b.price, 0);
-        }
+        },
     },
     computed:{
         ...mapGetters(["cart"]),
       
+    },
+    created(){
+        
     }
     
 }

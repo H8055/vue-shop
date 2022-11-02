@@ -11,7 +11,7 @@ let router = new Router({
         {
             path: "/",
             name: "",
-            component: () => import("./components/Login.vue")
+            component: () => import("./components/Signup.vue")
         },
         {
             path: "/login",
@@ -36,7 +36,6 @@ let router = new Router({
         }, {
             path: "/Cart",
             name: "Cart",
-            meta: { requiresAuth: true },
             component: () => import("./components/cart.vue")
         }
     ]

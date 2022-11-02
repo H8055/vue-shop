@@ -21,19 +21,62 @@
 <script>
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { getFirestore, collection, addDoc } from "firebase/firestore";
+// const auth = getAuth();
+// const db = getFirestore();
+// const dbRef = collection(db, "users");
 export default{
     name:'signUpPage',
+
     data(){
         return{
             
             email:'',
             password:'',
-            error:''
+            error:'',
+            uid: "",
         }
 
     },
     methods:{
         async signupRequest(){
+        //     createUserWithEmailAndPassword(auth, this.email, this.password)
+        // .then((dataUser) => {
+        //   addDoc(dbRef, {
+            
+        //     email: this.email,
+        //     address: this.password,
+            
+        //     uid: this.uid,
+        //   });
+        //   localStorage.setItem("uidUser", dataUser.user.uid);
+        //   if (this.$store.state.cart > 0) {
+        //     this.$router.replace({name:'home'});
+        //   } else {
+        //     this.$router.replace({name:'home'});
+        //   }
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // });
+
+
+
+        // firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        // .then(() => {
+        //   firebase.auth().currentUser;
+        //     this.$router.replace({name:'home'});
+          
+        // //   const actionCodeSettings = {
+        // //     url: `${process.env.VUE_APP_HOST_NAME}/sign-in/?email=${user.email}`,
+        // //   };
+        // //   user.sendEmailVerification(actionCodeSettings);
+        // })
+        // .catch(error => {
+        //   this.error = error.message;
+        // });
+
             try{
                const user = await firebase.auth().createUserWithEmailAndPassword(this.email,this.password)
                console.log(user)

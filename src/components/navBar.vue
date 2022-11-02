@@ -21,10 +21,11 @@
     
     <a href="" target="_blank">Mobile</a>
     <a href="" target="_blank">Tv</a>
+    
     <router-link class="router-link" to="/Cart">
       <a href="" target="_blank">Cart({{totalQty}})</a>
     </router-link>
-    <a class="" @click="signOut">Sign Out</a>
+    <a class="sign-out" @click="signOut">Sign Out</a>
     
    
   </div>
@@ -105,6 +106,7 @@ body {
   text-decoration: none;
   color: #efefef;
 }
+
 
 .nav > .nav-links > a:hover {
   background-color: rgba(0, 0, 0, 0.3);

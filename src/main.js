@@ -5,6 +5,8 @@ import router from "./router";
 import store from "./store"
 import firebase from 'firebase/compat/app';
 import axios from 'axios'
+import { getFirestore } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 Vue.prototype.$axios = axios;
 
@@ -22,10 +24,17 @@ const firebaseConfig = {
   measurementId: "G-4M00QSFX20"
 };
 
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+export { auth, db }
+
+
 
 
 Vue.config.productionTip = false
+
+
 
 new Vue({
   router,
