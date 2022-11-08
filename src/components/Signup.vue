@@ -99,7 +99,7 @@ export default{
     font-size: 18px;
 }
 .main{
-    background: #76b852;
+    background: #ffffff;
     width: 100%;
     height: 1160px ;
 }
@@ -107,7 +107,7 @@ export default{
     text-align: center;
     padding-top: 40px;
     font-size: 3rem;
-    color: #ffffff;
+    color: #000000;
 }
 .login-page {
   width: 360px;

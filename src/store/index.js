@@ -12,12 +12,15 @@ Vue.use(Vuex);
 let saveCart = window.localStorage.getItem('saveCart');
 
 const state = {
+    search: '',
     products: [],
+    // singleproducts: [],
     cart: saveCart ? JSON.parse(saveCart) : [],
 };
 
 const getters = {
     products: (state) => state.products,
+    // singleproducts: (state) => state.singleproducts,
     cart: (state) => state.cart,
 };
 
@@ -26,6 +29,10 @@ const actions = {
 
         commit("getProductData");
     },
+    // getsingleproducts({ commit }) {
+
+    //     commit("getsingleproducts");
+    // },
     removeItemfromCart({ commit }, id) {
         commit("removeItemfromCart", id);
     },
@@ -48,6 +55,9 @@ const mutations = {
     getProductData(state) {
         state.products = products;
     },
+    // getsingleProducts(state) {
+    //     state.singleproducts.id = products.id
+    // },
     addItemToCart(state, item) {
         const productInCart = state.cart.find((product) => product.id === item.id);
         // localStorage.setItem('key', JSON.stringify(item));

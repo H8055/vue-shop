@@ -34,10 +34,16 @@ export { auth, db }
 
 Vue.config.productionTip = false
 
+let appConfig;
 
+firebase.auth().onAuthStateChanged(user => {
+  console.log(user)
+  if (!appConfig) {
+    appConfig = new Vue({
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app')
+  }
+})
 
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app')

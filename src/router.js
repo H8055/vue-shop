@@ -25,6 +25,12 @@ let router = new Router({
             component: () => import("./components/home.vue")
         },
         {
+            path: "/details/:id",
+            name: "productDetails",
+
+            component: () => import("./components/productDetails.vue")
+        },
+        {
             path: "/signup",
             name: "signup",
             component: () => import("./components/Signup.vue")

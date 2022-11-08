@@ -7,7 +7,13 @@
   <div class="card-body">
     <h5 class="card-title">{{item.title}}</h5>
     <p class="card-text">${{item.price}}</p>
-    <a href="#" @click="addToCart(item)" class="btn btn-primary">Add Product</a>
+    <router-link :to="{
+      name:'productDetails',
+      params:{id:item.id}
+        }">
+        <a class="btn"> Details</a>
+    </router-link>
+    <a href="#" @click.prevent="addToCart(item)" class="btn btn-primary">Add Product</a>
   </div>
 </div>
    </div>
@@ -28,15 +34,19 @@ import { mapActions, mapGetters } from "vuex";
   },
   methods: {
     ...mapActions(["addToCart", "getProducts"]),
-  },
-
-
-
+    
+    
+    // GoToDetails(key) {
+      //   this.$router.push({ name: "productDetails", params: { id: key } });
+      // },
+      
+    },
     // data(){
     //     return{
     //         products,
     //     }
     // },    
+    
  }
 </script>
 
